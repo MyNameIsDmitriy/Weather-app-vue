@@ -64,6 +64,20 @@ body {
   perspective: 1000px;
 }
 
+.cursor-pointer {
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.margin-15x {
+  margin: 10px 0px;
+}
+
+.padding-7px {
+  padding: 0 7px;
+}
+
 .block-front-side,
 .block-backside {
   display: flex;
@@ -243,6 +257,29 @@ body {
   font-size: 50px;
 }
 
+// Set day row on backside start
+.set-day-buttons {
+  display: flex;
+  justify-content: space-around;
+
+  font-size: 25px;
+  height: 35px;
+
+  .tomorrow-button:hover, .today-button:hover, .after-tomorrow-button:hover {
+    cursor: pointer;
+  }
+
+  .tomorrow-button, .today-button, .after-tomorrow-button {
+    display: flex;
+    align-items: center;
+  
+    background-color: rgb(19, 19, 20);
+  
+    border-radius: 8px;
+  }
+}
+// Set day row on backside end
+
 // "Set time:" row on backside start  
 .set-hour-button {
   display: flex;
@@ -250,9 +287,6 @@ body {
   align-items: center;
 
   font-size: 25px;
-
-  margin-top: 10px;
-  margin-bottom: 15px;
 
   p {
     padding-bottom: 0px;
