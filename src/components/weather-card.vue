@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { API_KEY } from "../config.js";
+import { API_KEY } from "@/config";
 import FrontSide from "./front-side-component/frontside-card.vue";
 import BackSide from "./backside-component/backside-card.vue";
 

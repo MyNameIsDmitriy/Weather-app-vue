@@ -11,7 +11,7 @@
       <div @click="$emit('rotate')" class="double-button__rotate">
         <img
           class="rotate-img"
-          src="../../assets/svg/rotate-button.png"
+          src="@/assets/svg/rotate-button.png"
           alt="rotate image"
         />
       </div>

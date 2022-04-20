@@ -1,7 +1,7 @@
 <template>
   <div class="block__main">
     <img
-      src="../../assets/svg/clear-day.svg"
+      src="@/assets/svg/clear-day.svg"
       width="250"
       height="250"
       alt="weather-status"
