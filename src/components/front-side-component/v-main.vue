@@ -17,4 +17,20 @@ export default {
 };
 </script>
 
-<style lang="scss" src="../../style.scss"></style>
+<style lang="scss">
+.block__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-status {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+
+  font-size: 15px;
+  opacity: 0.6;
+}
+</style>

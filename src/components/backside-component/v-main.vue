@@ -70,4 +70,112 @@ export default {
 };
 </script>
 
-<style lang="scss" src="../../style.scss"></style>
+<style lang="scss">
+.block-backside__main {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 20px;
+
+  .display-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .space-between {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  p {
+    padding-bottom: 7px;
+  }
+}
+
+// Set day row on backside start
+.set-day-buttons {
+  display: flex;
+  justify-content: space-around;
+
+  font-size: 25px;
+  height: 35px;
+
+  .tomorrow-button:hover,
+  .today-button:hover,
+  .after-tomorrow-button:hover {
+    cursor: pointer;
+  }
+
+  .tomorrow-button,
+  .today-button,
+  .after-tomorrow-button {
+    display: flex;
+    align-items: center;
+
+    background-color: rgb(19, 19, 20);
+
+    border-radius: 8px;
+  }
+}
+// Set day row on backside end
+
+// "Set time:" row start
+.set-hour-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 25px;
+
+  p {
+    padding-bottom: 0px;
+  }
+}
+
+.set-time-margin {
+  display: flex;
+  align-items: center;
+
+  margin-right: 15px;
+}
+
+.set-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.minus-button,
+.hour-viewier,
+.plus-button {
+  width: 35px;
+
+  background-color: rgb(19, 19, 20);
+
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 35px;
+
+    padding-bottom: 0px;
+  }
+}
+
+.minus-button {
+  border-radius: 20% 0 0 20%;
+
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.plus-button {
+  border-radius: 0 20% 20% 0;
+
+  :hover {
+    cursor: pointer;
+  }
+}
+// "Set time:" row end
+</style>

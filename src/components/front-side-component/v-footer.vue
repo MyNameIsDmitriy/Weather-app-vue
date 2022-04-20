@@ -34,4 +34,71 @@ export default {
 };
 </script>
 
-<style lang="scss" src="../../style.scss"></style>
+<style lang="scss">
+.block__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.params {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 20px;
+}
+
+.humidity {
+  padding: 10px 0px;
+}
+
+.double-button {
+  padding: 10px 0px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .double-button__delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 40px;
+
+    border-radius: 20% 0 0 20%;
+
+    background-color: rgb(19, 19, 20);
+
+    // :hover{
+    //   cursor: pointer;
+    // }
+  }
+
+  .double-button__rotate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 40px;
+
+    :hover {
+      transform: rotate(360deg);
+      transition: all 0.5s ease 0s;
+
+      cursor: pointer;
+    }
+
+    img {
+      width: 40px;
+    }
+  }
+}
+
+.temp {
+  font-size: 50px;
+}
+</style>

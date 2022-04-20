@@ -33,4 +33,25 @@ export default {
 };
 </script>
 
-<style lang="scss" src="../../style.scss"></style>
+<style lang="scss">
+.block-front-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: absolute;
+
+  width: 420px;
+  height: 460px;
+
+  padding: 20px 25px;
+
+  background-color: rgb(37, 37, 39);
+
+  border: 2px solid rgb(74, 74, 77);
+  border-radius: 3%;
+
+  transition: 0.35s;
+  backface-visibility: hidden;
+}
+</style>

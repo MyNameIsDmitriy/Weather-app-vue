@@ -29,4 +29,15 @@ export default {
 };
 </script>
 
-<style lang="scss" src="../../style.scss"></style>
+<style lang="scss">
+.block-backside__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.block-backside__footer {
+  justify-content: center;
+}
+</style>

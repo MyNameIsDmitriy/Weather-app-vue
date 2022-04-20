@@ -102,4 +102,9 @@ export default {
 };
 </script>
 
-<style lang="scss" src="../style.scss"></style>
+<style lang="scss">
+.card {
+  position: relative;
+  perspective: 1000px;
+}
+</style>

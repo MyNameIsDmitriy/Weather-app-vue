@@ -1,0 +1,86 @@
+/* reset start */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* reset end */
+
+body {
+  background-color: rgb(29, 29, 31);
+
+  margin: 0 auto;
+
+  font-family: "Josefin Sans", sans-serif;
+  color: aliceblue;
+}
+
+.cursor-pointer {
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.margin-15x {
+  margin: 10px 0px;
+}
+
+.padding-7px {
+  padding: 0 7px;
+}
+
+.block-backside {
+  transform: rotateY(180deg);
+}
+
+.rotated-card .block-front-side {
+  transform: rotateY(180deg);
+}
+
+.rotated-card .block-backside {
+  transform: rotateY(360deg);
+}
