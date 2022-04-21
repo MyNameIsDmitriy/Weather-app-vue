@@ -1,5 +1,4 @@
 <template>
-  <div class="">{{}}</div>
   <div class="card" :class="{ 'rotated-card': rotatedCard }">
     <FrontSide
       :location="location"
