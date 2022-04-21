@@ -24,16 +24,16 @@ export default {
 }
 
 .cards-wrapper {
-  max-width: 1800px;
+  max-width: 95%;
   min-width: (420 * 3) px;
-  margin: 0 auto;
+  margin: 1% auto;
 }
 
 .margin-top-percent {
-  margin-top: 50%;
+  margin-top: 35%;
 }
 
 .margin-left-percent {
-  margin-left: 10%;
+  margin-left: 7%;
 }
 </style>
