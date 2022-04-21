@@ -1,6 +1,12 @@
 <template>
+  <div class="">{{}}</div>
   <div class="card" :class="{ 'rotated-card': rotatedCard }">
-    <FrontSide :location="location" :current="current" @rotate="rotateCard" />
+    <FrontSide
+      :location="location"
+      :current="current"
+      :imgSrc="imgSrc"
+      @rotate="rotateCard"
+    />
     <BackSide
       :location="location"
       :selectedWeather="selectedWeather"
@@ -16,6 +22,7 @@
 import { API_KEY } from "@/config";
 import FrontSide from "./front-side-component/frontside-card.vue";
 import BackSide from "./backside-component/backside-card.vue";
+import weatherImgObject from "@/weatherImgObject.js";
 
 export default {
   name: "WeatherCard",
@@ -40,6 +47,7 @@ export default {
       rotatedCard: false,
       selectedWeather: {},
       selectedWeatherIndex: 14,
+      imgSrc: "",
     };
   },
 
@@ -68,6 +76,9 @@ export default {
       this.location = result.location;
       this.dayInfo = result.forecast.forecastday[0];
       this.selectedWeather = this.dayInfo.hour[this.selectedWeatherIndex];
+      this.imgSrc =
+        weatherImgObject.map[this.current.condition.text] ??
+        weatherImgObject.defaultSrc;
     },
 
     fetchWeatherError() {

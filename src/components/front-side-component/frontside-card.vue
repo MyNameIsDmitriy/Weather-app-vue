@@ -1,7 +1,7 @@
 <template>
   <div class="block-front-side">
     <FrontHeader :location="location" />
-    <FrontMain :current="current" />
+    <FrontMain :current="current" :imgSrc="imgSrc" />
     <FrontFooter
       :current="current"
       :rotatedCard="rotatedCard"
@@ -17,7 +17,7 @@ import FrontFooter from "./v-footer.vue";
 
 export default {
   name: "FrontSide",
-  props: ["location", "current", "rotatedCard"],
+  props: ["location", "current", "imgSrc", "rotatedCard"],
   emits: ["rotate"],
   components: {
     FrontHeader,
