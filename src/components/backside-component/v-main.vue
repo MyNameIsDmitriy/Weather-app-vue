@@ -14,13 +14,13 @@
     <div class="set-hour-button margin-15x">
       <p class="set-time-margin">Set time:</p>
       <div class="set-buttons">
-        <div @click="decreseWeatherIndex" class="minus-button">
+        <div @click="decreseWeatherIndex" class="minus-button button-red-flash">
           <p>-</p>
         </div>
         <div class="hour-viewier">
           <p>{{ selectedWeatherIndex }}</p>
         </div>
-        <div @click="increaseWeatherIndex" class="plus-button">
+        <div @click="increaseWeatherIndex" class="plus-button button-red-flash">
           <p>+</p>
         </div>
       </div>
@@ -175,6 +175,12 @@ export default {
 
   :hover {
     cursor: pointer;
+  }
+}
+
+button-red-flash {
+  :active {
+    color: red;
   }
 }
 // "Set time:" row end
