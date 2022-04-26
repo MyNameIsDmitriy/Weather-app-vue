@@ -178,7 +178,7 @@ export default {
   }
 }
 
-button-red-flash {
+.button-red-flash {
   :active {
     color: red;
   }
