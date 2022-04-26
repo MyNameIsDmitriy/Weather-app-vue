@@ -1,5 +1,5 @@
 <template>
-  <div class="block-backside__main">
+  <div class="block-backside__main" :class="{ 'is-button-pressed': isPressed }">
     <p class="display-center">
       Timezone: {{ location.country }} ({{ location.tz_id }})
     </p>
@@ -14,13 +14,13 @@
     <div class="set-hour-button margin-15x">
       <p class="set-time-margin">Set time:</p>
       <div class="set-buttons">
-        <div @click="$emit('decreseWeatherIndex')" class="minus-button">
+        <div @click="decreseWeatherIndex" class="minus-button">
           <p>-</p>
         </div>
         <div class="hour-viewier">
           <p>{{ selectedWeatherIndex }}</p>
         </div>
-        <div @click="$emit('increaseWeatherIndex')" class="plus-button">
+        <div @click="increaseWeatherIndex" class="plus-button">
           <p>+</p>
         </div>
       </div>
