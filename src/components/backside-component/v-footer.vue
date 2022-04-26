@@ -4,7 +4,7 @@
       <div class="double-button__delete">
         <p>delete</p>
       </div>
-      <div @click="$emit('rotate')" class="double-button__rotate">
+      <div @click="rotateCard" class="double-button__rotate">
         <img
           class="rotate-img"
           src="@/assets/svg/rotate-button.png"

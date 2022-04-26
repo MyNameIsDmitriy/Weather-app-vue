@@ -1,5 +1,5 @@
 <template>
-  <div class="block-backside__main" :class="{ 'is-button-pressed': isPressed }">
+  <div class="block-backside__main">
     <p class="display-center">
       Timezone: {{ location.country }} ({{ location.tz_id }})
     </p>
