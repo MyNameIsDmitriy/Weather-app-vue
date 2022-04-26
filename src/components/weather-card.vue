@@ -10,6 +10,7 @@
       :location="location"
       :selectedWeather="selectedWeather"
       :selectedWeatherIndex="selectedWeatherIndex"
+      :dayInfo="dayInfo"
       @rotate="rotateCard"
       @decreseWeatherIndex="decreseWeatherIndex"
       @increaseWeatherIndex="increaseWeatherIndex"

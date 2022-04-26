@@ -50,13 +50,21 @@
       <p>Humidity:</p>
       <p>{{ selectedWeather.humidity }}%</p>
     </div>
+    <div class="space-between">
+      <p>Sunrise:</p>
+      <p>{{ dayInfo.astro.sunrise }}</p>
+    </div>
+    <div class="space-between">
+      <p>Sunset:</p>
+      <p>{{ dayInfo.astro.sunset }}</p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "BackMain",
-  props: ["selectedWeather", "location", "selectedWeatherIndex"],
+  props: ["selectedWeather", "dayInfo", "location", "selectedWeatherIndex"],
   emits: ["decreseWeatherIndex", "increaseWeatherIndex"],
 
   methods: {

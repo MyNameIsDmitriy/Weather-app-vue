@@ -4,6 +4,7 @@
       :location="location"
       :selectedWeather="selectedWeather"
       :selectedWeatherIndex="selectedWeatherIndex"
+      :dayInfo="dayInfo"
       @decreseWeatherIndex="decreseWeatherIndex"
       @increaseWeatherIndex="increaseWeatherIndex"
     />
@@ -17,7 +18,13 @@ import BackMain from "./v-main.vue";
 
 export default {
   name: "BackSide",
-  props: ["location", "selectedWeather", "selectedWeatherIndex", "rotatedCard"], // add types
+  props: [
+    "location",
+    "selectedWeather",
+    "dayInfo",
+    "selectedWeatherIndex",
+    "rotatedCard",
+  ], // add types
   emits: ["decreseWeatherIndex", "increaseWeatherIndex", "rotate"],
   components: {
     BackMain,
