@@ -26,6 +26,7 @@ import weatherImgObject from "@/weatherImgObject.js";
 
 export default {
   name: "WeatherCard",
+  props: ["cities"],
   components: {
     FrontSide,
     BackSide,
@@ -61,7 +62,7 @@ export default {
   methods: {
     async fetchWeather() {
       const response = await fetch(
-        "https://weatherapi-com.p.rapidapi.com/forecast.json?q=Hrodna&days=3",
+        `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${this.cities[0]}&days=3`,
         {
           method: "GET",
           headers: {
