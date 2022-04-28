@@ -6,13 +6,8 @@
       class="margin-left-percent"
       :class="{ 'margin-top-percent': isEven(idx) }"
     >
-      <WeatherCard :cities="cities" />
+      <WeatherCard :cities="cities" :idx="idx" />
     </div>
-
-    <!-- <div class="margin-left-percent"><WeatherCard :cities="cities" /></div>
-    <div class="margin-top-percent margin-left-percent">
-      <WeatherCard :cities="cities" />
-    </div> -->
   </div>
 </template>
 
@@ -27,7 +22,7 @@ export default {
 
   data() {
     return {
-      cities: ["Hrodna", "Berlin", "Paris"],
+      cities: ["Hrodna", "Tokio", "Nunavut"],
     };
   },
 

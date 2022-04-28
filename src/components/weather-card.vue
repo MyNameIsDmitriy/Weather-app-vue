@@ -8,10 +8,13 @@
     />
     <BackSide
       :location="location"
+      :selectedDay="selectedDay"
+      :dayIndex="dayIndex"
       :selectedWeather="selectedWeather"
       :selectedWeatherIndex="selectedWeatherIndex"
-      :dayInfo="dayInfo"
+      :possibleDays="possibleDays"
       @rotate="rotateCard"
+      @selectDay="selectDay"
       @decreseWeatherIndex="decreseWeatherIndex"
       @increaseWeatherIndex="increaseWeatherIndex"
     />
@@ -26,7 +29,7 @@ import weatherImgObject from "@/weatherImgObject.js";
 
 export default {
   name: "WeatherCard",
-  props: ["cities"],
+  props: ["cities", "idx"],
   components: {
     FrontSide,
     BackSide,
@@ -35,11 +38,21 @@ export default {
   data() {
     return {
       current: {
-        condition: {},
+        condition: {
+          text: {},
+        },
       },
       location: {},
-      forecast: {},
-      dayInfo: {
+      forecast: {
+        forecastday: [],
+      },
+      possibleDays: [
+        { name: "Tomorrow", num: 1 },
+        { name: "Today", num: 0 },
+        { name: "After Tomorrow", num: 2 },
+      ],
+      dayIndex: 0,
+      selectedDay: {
         day: {},
         astro: {},
         hour: [],
@@ -53,8 +66,13 @@ export default {
   },
 
   watch: {
+    dayIndex() {
+      this.selectedDay = this.forecast.forecastday[this.dayIndex];
+      this.selectedWeather = this.selectedDay.hour[this.selectedWeatherIndex];
+    },
+
     selectedWeatherIndex(newValue) {
-      this.selectedWeather = this.dayInfo.hour[newValue];
+      this.selectedWeather = this.selectedDay.hour[newValue];
       this.loopWeatherIndex(); // why it's working ?
     },
   },
@@ -62,7 +80,9 @@ export default {
   methods: {
     async fetchWeather() {
       const response = await fetch(
-        `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${this.cities[0]}&days=3`,
+        `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${
+          this.cities[this.idx] // should change smth
+        }&days=3`,
         {
           method: "GET",
           headers: {
@@ -75,8 +95,9 @@ export default {
       console.log(result);
       this.current = result.current;
       this.location = result.location;
-      this.dayInfo = result.forecast.forecastday[0];
-      this.selectedWeather = this.dayInfo.hour[this.selectedWeatherIndex];
+      this.forecast = result.forecast;
+      this.selectedDay = this.forecast.forecastday[this.dayIndex];
+      this.selectedWeather = this.selectedDay.hour[this.selectedWeatherIndex];
       this.imgSrc =
         weatherImgObject.map[this.current.condition.text] ??
         weatherImgObject.defaultSrc;
@@ -101,6 +122,11 @@ export default {
 
     rotateCard() {
       this.rotatedCard = !this.rotatedCard;
+    },
+
+    selectDay(idx) {
+      this.dayIndex = this.possibleDays[idx].num;
+      console.log(this.dayIndex);
     },
   },
 

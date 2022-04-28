@@ -6,9 +6,14 @@
     <p class="display-center">City: {{ location.name }}</p>
 
     <div class="set-day-buttons margin-15x">
-      <div class="tomorrow-button padding-7px">Tomorow</div>
-      <div class="today-button padding-7px">Today</div>
-      <div class="after-tomorrow-button padding-7px">After Tomorow</div>
+      <div
+        v-for="(day, index) in possibleDays"
+        v-bind:key="index"
+        @click="selectDay(index)"
+        class="set-day-button padding-7px button-red-flash"
+      >
+        <div>{{ day.name }}</div>
+      </div>
     </div>
 
     <div class="set-hour-button margin-15x">
@@ -52,11 +57,11 @@
     </div>
     <div class="space-between">
       <p>Sunrise:</p>
-      <p>{{ dayInfo.astro.sunrise }}</p>
+      <p>{{ selectedDay.astro.sunrise }}</p>
     </div>
     <div class="space-between">
       <p>Sunset:</p>
-      <p>{{ dayInfo.astro.sunset }}</p>
+      <p>{{ selectedDay.astro.sunset }}</p>
     </div>
   </div>
 </template>
@@ -64,10 +69,21 @@
 <script>
 export default {
   name: "BackMain",
-  props: ["selectedWeather", "dayInfo", "location", "selectedWeatherIndex"],
-  emits: ["decreseWeatherIndex", "increaseWeatherIndex"],
+  props: [
+    "selectedWeather",
+    "selectedDay",
+    "dayIndex",
+    "location",
+    "selectedWeatherIndex",
+    "possibleDays",
+  ],
+  emits: ["decreseWeatherIndex", "increaseWeatherIndex", "selectDay"],
 
   methods: {
+    selectDay(idx) {
+      this.$emit("selectDay", idx);
+    },
+
     decreseWeatherIndex() {
       this.$emit("decreseWeatherIndex");
     },
@@ -108,21 +124,21 @@ export default {
   font-size: 25px;
   height: 35px;
 
-  .tomorrow-button:hover,
-  .today-button:hover,
-  .after-tomorrow-button:hover {
+  .set-day-button:hover {
     cursor: pointer;
   }
 
-  .tomorrow-button,
-  .today-button,
-  .after-tomorrow-button {
+  .set-day-button {
     display: flex;
     align-items: center;
 
     background-color: rgb(19, 19, 20);
 
     border-radius: 8px;
+
+    p {
+      padding: 0px;
+    }
   }
 }
 // Set day row on backside end

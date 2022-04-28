@@ -2,9 +2,12 @@
   <div class="block-backside">
     <BackMain
       :location="location"
+      :selectedDay="selectedDay"
+      :dayIndex="dayIndex"
       :selectedWeather="selectedWeather"
       :selectedWeatherIndex="selectedWeatherIndex"
-      :dayInfo="dayInfo"
+      :possibleDays="possibleDays"
+      @selectDay="selectDay"
       @decreseWeatherIndex="decreseWeatherIndex"
       @increaseWeatherIndex="increaseWeatherIndex"
     />
@@ -20,12 +23,14 @@ export default {
   name: "BackSide",
   props: [
     "location",
+    "selectedDay",
+    "dayIndex",
     "selectedWeather",
-    "dayInfo",
     "selectedWeatherIndex",
     "rotatedCard",
+    "possibleDays",
   ], // add types
-  emits: ["decreseWeatherIndex", "increaseWeatherIndex", "rotate"],
+  emits: ["decreseWeatherIndex", "increaseWeatherIndex", "selectDay", "rotate"],
   components: {
     BackMain,
     BackFooter,
@@ -34,6 +39,10 @@ export default {
   methods: {
     rotateCard() {
       this.$emit("rotate");
+    },
+
+    selectDay(idx) {
+      this.$emit("selectDay", idx);
     },
 
     decreseWeatherIndex() {
