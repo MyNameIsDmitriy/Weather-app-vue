@@ -7,21 +7,35 @@
     >
       <WeatherCard :cities="cities" :idx="idx" />
     </div>
+
+    <div class="margin-left-percent">
+      <AddWeatherCard />
+    </div>
   </div>
 </template>
 
 <script>
 import WeatherCard from "@/components/weather-card.vue";
+import AddWeatherCard from "@/components/add-weather-card.vue";
 
 export default {
   name: "App",
   components: {
     WeatherCard,
+    AddWeatherCard,
   },
 
   data() {
     return {
-      cities: ["Hrodna", "Tokio", "Nunavut"],
+      cities: [
+        "Hrodna",
+        "Tokio",
+        "Nunavut",
+        "Canberra",
+        "Ankara",
+        "New-York",
+        "Brazilia",
+      ],
     };
   },
 
@@ -33,6 +47,7 @@ export default {
 .grid-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 550px;
 }
 
 .cards-wrapper {

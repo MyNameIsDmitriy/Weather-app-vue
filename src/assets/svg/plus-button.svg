@@ -1,0 +1,60 @@
+      <svg
+        xml:space="preserve"
+        viewBox="0 0 100 100"
+        y="0"
+        x="0"
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        style="height: 100%; width: 100%; background: rgba(255, 255, 255, 0)"
+        width="350px"
+        height="350px"
+      >
+        <g>
+          <g>
+            <g>
+              <g>
+                <circle
+                  stroke-miterlimit="10"
+                  stroke-width="8"
+                  style=""
+                  stroke="#FF0000"
+                  fill="none"
+                  r="40"
+                  cy="50"
+                  cx="50"
+                ></circle>
+              </g>
+            </g>
+            <g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        d="M25 42.7h50v14.7H25z"
+                        fill="#abbd81"
+                        style="fill: rgb(0, 0, 0)"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        d="M42.7 25h14.7v50H42.7z"
+                        fill="#abbd81"
+                        style="fill: rgb(0, 0, 0)"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
