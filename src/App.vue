@@ -4,7 +4,6 @@
       v-for="(city, idx) in cities"
       v-bind:key="idx"
       class="margin-left-percent"
-      :class="{ 'margin-top-percent': isEven(idx) }"
     >
       <WeatherCard :cities="cities" :idx="idx" />
     </div>
@@ -26,11 +25,7 @@ export default {
     };
   },
 
-  methods: {
-    isEven(idx) {
-      return idx % 2 == 0;
-    },
-  },
+  methods: {},
 };
 </script>
 
