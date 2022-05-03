@@ -1,4 +1,5 @@
 <template>
+  <PopupInput :shownPopup="shownPopup" />
   <div class="grid-cards cards-wrapper">
     <div
       v-for="(city, idx) in cities"
@@ -9,7 +10,7 @@
     </div>
 
     <div class="margin-left-percent">
-      <AddWeatherCard />
+      <AddWeatherCard :shownPopup="shownPopup" @showPopup="showPopup" />
     </div>
   </div>
 </template>
@@ -17,12 +18,14 @@
 <script>
 import WeatherCard from "@/components/weather-card.vue";
 import AddWeatherCard from "@/components/add-weather-card.vue";
+import PopupInput from "@/components/v-input.vue";
 
 export default {
   name: "App",
   components: {
     WeatherCard,
     AddWeatherCard,
+    PopupInput,
   },
 
   data() {
@@ -36,10 +39,15 @@ export default {
         "New-York",
         "Brazilia",
       ],
+      shownPopup: false,
     };
   },
 
-  methods: {},
+  methods: {
+    showPopup() {
+      this.shownPopup = !this.shownPopup;
+    },
+  },
 };
 </script>
 
@@ -48,6 +56,8 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 550px;
+
+  z-index: 0;
 }
 
 .cards-wrapper {

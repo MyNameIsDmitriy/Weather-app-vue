@@ -1,5 +1,5 @@
 <template>
-  <div @click="smth" class="add-weather-card active-red-border">
+  <div @click="showPopup" class="add-weather-card active-red-border">
     <div class="add-weather-card__img">
       <img src="@/assets/svg/plus-button.svg" alt="plus" />
     </div>
@@ -9,12 +9,12 @@
 <script>
 export default {
   name: "AddWeatherCard",
-  props: [""],
-  emits: [""],
+  props: ["shownPopup"],
+  emits: ["showPopup"],
 
   methods: {
-    smth() {
-      console.log("Button is working !");
+    showPopup() {
+      this.$emit("showPopup");
     },
 
     addWeatherButton() {},
@@ -37,6 +37,8 @@ export default {
 
   border: 2px solid rgb(74, 74, 77);
   border-radius: 3%;
+
+  z-index: 0;
 }
 
 .active-red-border:active {
