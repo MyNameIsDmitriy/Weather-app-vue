@@ -4,8 +4,14 @@
       <div class="popup__input">
         <h2>Search</h2>
         <form class="input-row">
-          <input type="text" placeholder="What place are you interested in ?" />
-          <div class="input-accept-button">Accept</div>
+          <input
+            v-model="value"
+            type="text"
+            placeholder="What place are you interested in ?"
+          />
+          <div @click="addWeatherButton" class="input-accept-button active-red">
+            Accept
+          </div>
         </form>
       </div>
     </div>
@@ -14,9 +20,21 @@
 
 <script>
 export default {
-  name: "PopupInput",
-  props: ["shownPopup"],
-  emits: [""],
+  name: "CreateWidgetPopup",
+  props: ["shownPopup", "cities", ""],
+  emits: ["addWeatherButton"],
+
+  data() {
+    return {
+      value: "",
+    };
+  },
+
+  methods: {
+    addWeatherButton() {
+      this.$emit("addWeatherButton", this.value);
+    },
+  },
 };
 </script>
 
@@ -102,6 +120,15 @@ export default {
   border-radius: 0 20% 20% 0; //font-size: ;
 
   background-color: rgb(19, 19, 20);
+}
+
+.active-red:hover {
+  color: rgb(105, 16, 16);
+}
+
+.active-red:active {
+  border: 2px solid rgb(255, 0, 0);
+  color: red;
 }
 
 .shownPopup {

@@ -1,5 +1,9 @@
 <template>
-  <PopupInput :shownPopup="shownPopup" />
+  <CreateWidgetPopup
+    :shownPopup="shownPopup"
+    :cities="cities"
+    @addWeatherButton="addWeatherButton"
+  />
   <div class="grid-cards cards-wrapper">
     <div
       v-for="(city, idx) in cities"
@@ -18,27 +22,19 @@
 <script>
 import WeatherCard from "@/components/weather-card.vue";
 import AddWeatherCard from "@/components/add-weather-card.vue";
-import PopupInput from "@/components/v-input.vue";
+import CreateWidgetPopup from "@/components/create-widget-popup.vue";
 
 export default {
   name: "App",
   components: {
     WeatherCard,
     AddWeatherCard,
-    PopupInput,
+    CreateWidgetPopup,
   },
 
   data() {
     return {
-      cities: [
-        "Hrodna",
-        "Tokio",
-        "Nunavut",
-        "Canberra",
-        "Ankara",
-        "New-York",
-        "Brazilia",
-      ],
+      cities: ["Hrodna", "Tokio", "Nunavut", "Brazilia"],
       shownPopup: false,
     };
   },
@@ -46,6 +42,10 @@ export default {
   methods: {
     showPopup() {
       this.shownPopup = !this.shownPopup;
+    },
+
+    addWeatherButton(value) {
+      this.cities.push(value);
     },
   },
 };

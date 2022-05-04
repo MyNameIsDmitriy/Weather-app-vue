@@ -16,8 +16,6 @@ export default {
     showPopup() {
       this.$emit("showPopup");
     },
-
-    addWeatherButton() {},
   },
 };
 </script>
