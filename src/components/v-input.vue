@@ -55,9 +55,37 @@ export default {
 .input-row {
   display: flex;
 
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   input {
     min-width: 800px;
+
+    background-color: rgb(19, 19, 20);
+
+    padding: 12px;
+
+    color: red;
     font-size: 20px;
+
+    border: none;
+    -webkit-appearance: none;
+    -ms-apperance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    outline: none;
+  }
+  input:focus::placeholder {
+    color: transparent;
+  }
+
+  input::placeholder {
+    color: rgb(172, 172, 172);
+    transition: color 0.3s ease;
   }
 }
 
