@@ -2,7 +2,7 @@
   <CreateWidgetPopup
     :shownPopup="shownPopup"
     :cities="cities"
-    @addWeatherButton="addWeatherButton"
+    @addWeather="addWeatherHandler"
   />
   <div class="grid-cards cards-wrapper">
     <div
@@ -14,7 +14,7 @@
     </div>
 
     <div class="margin-left-percent">
-      <AddWeatherCard :shownPopup="shownPopup" @showPopup="showPopup" />
+      <AddWeatherCard @showPopup="showPopup" />
     </div>
   </div>
 </template>
@@ -41,11 +41,12 @@ export default {
 
   methods: {
     showPopup() {
-      this.shownPopup = !this.shownPopup;
+      this.shownPopup = true;
     },
 
-    addWeatherButton(value) {
-      this.cities.push(value);
+    addWeatherHandler(city) {
+      this.shownPopup = false;
+      this.cities.push(city);
     },
   },
 };

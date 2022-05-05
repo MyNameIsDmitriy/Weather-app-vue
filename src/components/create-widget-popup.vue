@@ -3,15 +3,17 @@
     <div class="popup__centering">
       <div class="popup__input">
         <h2>Search</h2>
-        <form class="input-row">
+        <form class="input-row" @submit.prevent="addWeatherButton">
           <input
+            ref="inputRef"
             v-model="value"
-            type="text"
             placeholder="What place are you interested in ?"
           />
-          <div @click="addWeatherButton" class="input-accept-button active-red">
-            Accept
-          </div>
+          <input
+            type="submit"
+            class="input-accept-button active-red"
+            value="Accept"
+          />
         </form>
       </div>
     </div>
@@ -21,8 +23,8 @@
 <script>
 export default {
   name: "CreateWidgetPopup",
-  props: ["shownPopup", "cities", ""],
-  emits: ["addWeatherButton"],
+  props: ["shownPopup", "cities"],
+  emits: ["addWeather"],
 
   data() {
     return {
@@ -30,9 +32,15 @@ export default {
     };
   },
 
+  watch: {
+    shownPopup() {
+      this.$refs.inputRef.focus();
+    },
+  },
+
   methods: {
     addWeatherButton() {
-      this.$emit("addWeatherButton", this.value);
+      this.value.length > 0 && this.$emit("addWeather", this.value);
     },
   },
 };
@@ -47,8 +55,8 @@ export default {
   top: 0;
   left: 0;
 
-  visibility: hidden;
-  transition: all 0.8s ease 0s;
+  transition: all 0.33s ease 0s;
+  transform: scale(0);
 
   z-index: 1;
 
@@ -132,6 +140,6 @@ export default {
 }
 
 .shownPopup {
-  visibility: visible;
+  transform: scale(1);
 }
 </style>
