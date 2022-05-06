@@ -78,7 +78,7 @@ export default {
 
     selectedWeatherIndex(newValue) {
       this.selectedWeather = this.selectedDay.hour[newValue];
-      this.loopWeatherIndex(); // why it's working ?
+      this.loopWeatherIndex();
     },
   },
 
@@ -96,7 +96,6 @@ export default {
       );
 
       const result = await response.json();
-      console.log(result);
       this.current = result.current;
       this.location = result.location;
       this.forecast = result.forecast;
@@ -134,7 +133,6 @@ export default {
 
     selectDay(idx) {
       this.dayIndex = this.possibleDays[idx].num;
-      console.log(this.dayIndex);
     },
   },
 

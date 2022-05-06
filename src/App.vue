@@ -51,11 +51,9 @@ export default {
     addWeatherHandler(city) {
       this.shownPopup = false;
       this.cities.push({ cityName: city, index: uuidv4() });
-      console.log(this.cities);
     },
 
     deleteWeatherCard(index) {
-      // this.cities.splice(this.city, 1);
       this.cities = this.cities.filter((t) => t.index !== index);
     },
   },
