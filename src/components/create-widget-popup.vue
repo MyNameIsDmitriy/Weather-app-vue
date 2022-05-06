@@ -38,7 +38,9 @@ export default {
 
   watch: {
     shownPopup() {
-      this.$refs.inputRef.focus();
+      if (this.shownPopup) {
+        this.$refs.inputRef.focus();
+      }
     },
   },
 
