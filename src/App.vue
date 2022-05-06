@@ -5,12 +5,8 @@
     @addWeather="addWeatherHandler"
   />
   <div class="grid-cards cards-wrapper">
-    <div
-      v-for="(city, idx) in cities"
-      v-bind:key="idx"
-      class="margin-left-percent"
-    >
-      <WeatherCard :cities="cities" :idx="idx" />
+    <div v-for="city in cities" :key="city.index" class="margin-left-percent">
+      <WeatherCard :city="city" @deleteWeatherCard="deleteWeatherCard" />
     </div>
 
     <div class="margin-left-percent">
@@ -24,6 +20,8 @@ import WeatherCard from "@/components/weather-card.vue";
 import AddWeatherCard from "@/components/add-weather-card.vue";
 import CreateWidgetPopup from "@/components/create-widget-popup.vue";
 
+import { v4 as uuidv4 } from "uuid";
+
 export default {
   name: "App",
   components: {
@@ -34,8 +32,14 @@ export default {
 
   data() {
     return {
-      cities: ["Hrodna", "Tokio", "Nunavut", "Brazilia"],
+      cities: [
+        { cityName: "Hrodna", index: uuidv4() },
+        { cityName: "Kawasaki", index: uuidv4() },
+        { cityName: "Nunavut", index: uuidv4() },
+        { cityName: "Brazilia", index: uuidv4() },
+      ],
       shownPopup: false,
+      uuidv4,
     };
   },
 
@@ -46,7 +50,13 @@ export default {
 
     addWeatherHandler(city) {
       this.shownPopup = false;
-      this.cities.push(city);
+      this.cities.push({ cityName: city, index: uuidv4() });
+      console.log(this.cities);
+    },
+
+    deleteWeatherCard(index) {
+      // this.cities.splice(this.city, 1);
+      this.cities = this.cities.filter((t) => t.index !== index);
     },
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="block-backside__footer">
     <div class="double-button">
-      <div class="double-button__delete">
+      <div @click="deleteWeatherCard(city)" class="double-button__delete">
         <p>delete</p>
       </div>
       <div @click="rotateCard" class="double-button__rotate">
@@ -18,12 +18,16 @@
 <script>
 export default {
   name: "BackFooter",
-  props: ["rotatedCard"],
-  emits: ["rotate"],
+  props: ["rotatedCard", "city"],
+  emits: ["rotate", "deleteWeatherCard"],
 
   methods: {
     rotateCard() {
       this.$emit("rotate");
+    },
+
+    deleteWeatherCard(city) {
+      this.$emit("deleteWeatherCard", city.index);
     },
   },
 };

@@ -5,7 +5,10 @@
       <p class="humidity">{{ current.humidity }}%</p>
     </div>
     <div class="double-button">
-      <div class="double-button__delete">
+      <div
+        @click="deleteWeatherCard(city)"
+        class="double-button__delete button-red-flash"
+      >
         <p>delete</p>
       </div>
       <div @click="$emit('rotate')" class="double-button__rotate">
@@ -23,12 +26,16 @@
 <script>
 export default {
   name: "FrontFooter",
-  props: ["current", "rotatedCard"],
-  emits: ["rotate"],
+  props: ["current", "rotatedCard", "city"],
+  emits: ["rotate", "deleteWeatherCard"],
 
   methods: {
     rotateCard() {
       this.$emit("rotate");
+    },
+
+    deleteWeatherCard(city) {
+      this.$emit("deleteWeatherCard", city.index);
     },
   },
 };
@@ -71,10 +78,10 @@ export default {
     border-radius: 20% 0 0 20%;
 
     background-color: rgb(19, 19, 20);
+  }
 
-    // :hover{
-    //   cursor: pointer;
-    // }
+  .double-button__delete:hover {
+    cursor: pointer;
   }
 
   .double-button__rotate {
@@ -100,5 +107,11 @@ export default {
 
 .temp {
   font-size: 50px;
+}
+
+.button-red-flash {
+  :active {
+    color: red;
+  }
 }
 </style>

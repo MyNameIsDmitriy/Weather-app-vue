@@ -11,7 +11,12 @@
       @decreseWeatherIndex="decreseWeatherIndex"
       @increaseWeatherIndex="increaseWeatherIndex"
     />
-    <BackFooter :rotatedCard="rotatedCard" @rotate="rotateCard" />
+    <BackFooter
+      :rotatedCard="rotatedCard"
+      :city="city"
+      @rotate="rotateCard"
+      @deleteWeatherCard="deleteWeatherCard"
+    />
   </div>
 </template>
 
@@ -29,8 +34,15 @@ export default {
     "selectedWeatherIndex",
     "rotatedCard",
     "possibleDays",
+    "city",
   ], // add types
-  emits: ["decreseWeatherIndex", "increaseWeatherIndex", "selectDay", "rotate"],
+  emits: [
+    "decreseWeatherIndex",
+    "increaseWeatherIndex",
+    "selectDay",
+    "rotate",
+    "deleteWeatherCard",
+  ],
   components: {
     BackMain,
     BackFooter,
@@ -39,6 +51,10 @@ export default {
   methods: {
     rotateCard() {
       this.$emit("rotate");
+    },
+
+    deleteWeatherCard(index) {
+      this.$emit("deleteWeatherCard", index);
     },
 
     selectDay(idx) {

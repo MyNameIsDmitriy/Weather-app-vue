@@ -4,7 +4,9 @@
       :location="location"
       :current="current"
       :imgSrc="imgSrc"
+      :city="city"
       @rotate="rotateCard"
+      @deleteWeatherCard="deleteWeatherCard"
     />
     <BackSide
       :location="location"
@@ -13,7 +15,9 @@
       :selectedWeather="selectedWeather"
       :selectedWeatherIndex="selectedWeatherIndex"
       :possibleDays="possibleDays"
+      :city="city"
       @rotate="rotateCard"
+      @deleteWeatherCard="deleteWeatherCard"
       @selectDay="selectDay"
       @decreseWeatherIndex="decreseWeatherIndex"
       @increaseWeatherIndex="increaseWeatherIndex"
@@ -29,7 +33,8 @@ import weatherImgObject from "@/weatherImgObject.js";
 
 export default {
   name: "WeatherCard",
-  props: ["cities", "idx"],
+  props: ["city"],
+  emits: ["deleteWeatherCard"],
   components: {
     FrontSide,
     BackSide,
@@ -80,9 +85,7 @@ export default {
   methods: {
     async fetchWeather() {
       const response = await fetch(
-        `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${
-          this.cities[this.idx] // should change smth
-        }&days=3`,
+        `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${this.city.cityName}&days=3`,
         {
           method: "GET",
           headers: {
@@ -91,6 +94,7 @@ export default {
           },
         }
       );
+
       const result = await response.json();
       console.log(result);
       this.current = result.current;
@@ -122,6 +126,10 @@ export default {
 
     rotateCard() {
       this.rotatedCard = !this.rotatedCard;
+    },
+
+    deleteWeatherCard(index) {
+      this.$emit("deleteWeatherCard", index);
     },
 
     selectDay(idx) {

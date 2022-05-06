@@ -5,7 +5,9 @@
     <FrontFooter
       :current="current"
       :rotatedCard="rotatedCard"
+      :city="city"
       @rotate="rotateCard"
+      @deleteWeatherCard="deleteWeatherCard"
     />
   </div>
 </template>
@@ -17,8 +19,8 @@ import FrontFooter from "./v-footer.vue";
 
 export default {
   name: "FrontSide",
-  props: ["location", "current", "imgSrc", "rotatedCard"],
-  emits: ["rotate"],
+  props: ["location", "current", "imgSrc", "rotatedCard", "city"],
+  emits: ["rotate", "deleteWeatherCard"],
   components: {
     FrontHeader,
     FrontMain,
@@ -28,6 +30,10 @@ export default {
   methods: {
     rotateCard() {
       this.$emit("rotate");
+    },
+
+    deleteWeatherCard(index) {
+      this.$emit("deleteWeatherCard", index);
     },
   },
 };
