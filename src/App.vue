@@ -43,6 +43,17 @@ export default {
     };
   },
 
+  created() {
+    const sData = localStorage.getItem("weather-list");
+
+    if (sData) {
+      this.cities = JSON.parse(sData);
+      // this.cities.forEach(() => {
+      //   this.fetchWeather();
+      // });
+    }
+  },
+
   methods: {
     showPopup() {
       this.shownPopup = true;
@@ -51,10 +62,12 @@ export default {
     addWeatherHandler(city) {
       this.shownPopup = false;
       this.cities.push({ cityName: city, index: uuidv4() });
+      localStorage.setItem("weather-list", JSON.stringify(this.cities));
     },
 
     deleteWeatherCard(index) {
       this.cities = this.cities.filter((t) => t.index !== index);
+      localStorage.setItem("weather-list", JSON.stringify(this.cities));
     },
   },
 };
