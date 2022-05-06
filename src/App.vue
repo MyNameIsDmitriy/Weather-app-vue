@@ -3,6 +3,7 @@
     :shownPopup="shownPopup"
     :cities="cities"
     @addWeather="addWeatherHandler"
+    @hidePopup="hidePopup"
   />
   <div class="grid-cards cards-wrapper">
     <div v-for="city in cities" :key="city.index" class="margin-left-percent">
@@ -57,6 +58,10 @@ export default {
   methods: {
     showPopup() {
       this.shownPopup = true;
+    },
+
+    hidePopup() {
+      this.shownPopup = false;
     },
 
     addWeatherHandler(city) {

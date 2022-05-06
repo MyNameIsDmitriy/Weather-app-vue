@@ -1,9 +1,13 @@
 <template>
   <div class="popup" :class="{ shownPopup: shownPopup }">
-    <div class="popup__centering">
+    <div @click.self="hidePopup" class="popup__centering">
       <div class="popup__input">
         <h2>Search</h2>
-        <form class="input-row" @submit.prevent="addWeatherButton">
+        <form
+          class="input-row"
+          @keydown.esc="hidePopup"
+          @submit.prevent="addWeatherButton"
+        >
           <input
             ref="inputRef"
             v-model="value"
@@ -24,7 +28,7 @@
 export default {
   name: "CreateWidgetPopup",
   props: ["shownPopup", "cities"],
-  emits: ["addWeather"],
+  emits: ["addWeather", "hidePopup"],
 
   data() {
     return {
@@ -41,6 +45,12 @@ export default {
   methods: {
     addWeatherButton() {
       this.value.length > 0 && this.$emit("addWeather", this.value);
+      this.value = "";
+    },
+
+    hidePopup() {
+      this.$emit("hidePopup");
+      this.value = "";
     },
   },
 };
