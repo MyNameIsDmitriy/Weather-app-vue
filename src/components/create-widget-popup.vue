@@ -11,6 +11,7 @@
           <input
             ref="inputRef"
             v-model="value"
+            class="city-input"
             placeholder="What place are you interested in ?"
           />
           <input
@@ -67,7 +68,7 @@ export default {
   top: 0;
   left: 0;
 
-  transition: all 0.33s ease 0s;
+  transition: all 0.15s ease 0s;
   transform: scale(0);
 
   z-index: 1;
@@ -99,7 +100,7 @@ export default {
     box-sizing: border-box;
   }
 
-  input {
+  .city-input {
     min-width: 800px;
 
     background-color: rgb(19, 19, 20);
@@ -117,11 +118,11 @@ export default {
 
     outline: none;
   }
-  input:focus::placeholder {
+  .city-input:focus::placeholder {
     color: transparent;
   }
 
-  input::placeholder {
+  .city-input::placeholder {
     color: rgb(172, 172, 172);
     transition: color 0.3s ease;
   }
@@ -137,9 +138,22 @@ export default {
 
   margin-left: 7px;
 
-  border-radius: 0 20% 20% 0; //font-size: ;
-
   background-color: rgb(19, 19, 20);
+
+  color: red;
+
+  border-radius: 0 20% 20% 0; //font-size: ;
+  border: none;
+  -webkit-appearance: none;
+  -ms-apperance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  outline: none;
+}
+
+.input-accept-button:hover {
+  cursor: pointer;
 }
 
 .active-red:hover {

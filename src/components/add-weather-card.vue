@@ -38,6 +38,11 @@ export default {
   z-index: 0;
 }
 
+.add-weather-card:hover {
+  cursor: pointer;
+  border: 2px solid rgb(0, 0, 0);
+}
+
 .active-red-border:active {
   border: 2px solid rgb(255, 0, 0);
 }
