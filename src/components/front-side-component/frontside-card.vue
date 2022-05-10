@@ -60,4 +60,10 @@ export default {
   transition: 0.35s;
   backface-visibility: hidden;
 }
+
+@media (max-width: 410px) {
+  .block-front-side {
+    width: 410px;
+  }
+}
 </style>

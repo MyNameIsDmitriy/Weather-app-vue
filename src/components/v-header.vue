@@ -89,7 +89,7 @@ export default {
   justify-content: space-around;
   align-items: center;
 
-  width: 30%;
+  min-width: 30%;
 
   div {
     padding: 5px;
@@ -204,5 +204,45 @@ export default {
 .about-app:hover,
 .help:hover {
   cursor: s-resize;
+}
+
+@media (max-width: 1600px) {
+  .header__content {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1050px) {
+  .header__content {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 650px) {
+  .header {
+    min-width: 100%;
+  }
+
+  .header__content {
+    display: flex;
+    justify-content: center;
+    min-width: 340px;
+  }
+
+  .header__buttons {
+    justify-content: center;
+
+    min-width: 100%;
+  }
+
+  .weather__logo {
+    display: none;
+  }
+}
+
+@media (max-width: 410px) {
+  .header__buttons {
+    justify-content: flex-end;
+  }
 }
 </style>

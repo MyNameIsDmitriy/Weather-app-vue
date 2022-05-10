@@ -96,11 +96,31 @@ export default {
   margin: 1% auto;
 }
 
-.margin-top-percent {
-  margin-top: 35%;
-}
-
 .margin-left-percent {
   margin-left: 7%;
+}
+
+@media (max-width: 1600px) {
+  .grid-cards {
+    grid-template-columns: repeat(2, 0.7fr);
+    width: 1200px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .grid-cards {
+    grid-template-columns: repeat(1, 0.7fr);
+    width: 550px;
+  }
+}
+
+@media (max-width: 650px) {
+  .margin-left-percent {
+    margin-left: 0;
+  }
+
+  .grid-cards {
+    width: 474px;
+  }
 }
 </style>

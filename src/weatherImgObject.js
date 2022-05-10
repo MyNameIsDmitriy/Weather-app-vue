@@ -8,6 +8,7 @@ const weatherImgObject = {
   "Moderate rain": require("@/assets/svg/rain.svg"),
   "Heavy rain": require("@/assets/svg/extreme-rain.svg"),
   "Clear day": require("@/assets/svg/clear-day.svg"),
+  Clear: require("@/assets/svg/clear-day.svg"),
   Sunny: require("@/assets/svg/clear-day.svg"),
   Overcast: require("@/assets/svg/overcast.svg"),
   Cloudy: require("@/assets/svg/overcast.svg"),

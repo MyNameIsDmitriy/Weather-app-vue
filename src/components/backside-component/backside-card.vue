@@ -92,4 +92,10 @@ export default {
   transition: 0.35s;
   backface-visibility: hidden;
 }
+
+@media (max-width: 410px) {
+  .block-backside {
+    width: 410px;
+  }
+}
 </style>
