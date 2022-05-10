@@ -1,4 +1,5 @@
 <template>
+  <vHeader />
   <CreateWidgetPopup
     :shownPopup="shownPopup"
     :cities="cities"
@@ -20,6 +21,7 @@
 import WeatherCard from "@/components/weather-card.vue";
 import AddWeatherCard from "@/components/add-weather-card.vue";
 import CreateWidgetPopup from "@/components/create-widget-popup.vue";
+import vHeader from "@/components/v-header.vue";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -29,6 +31,7 @@ export default {
     WeatherCard,
     AddWeatherCard,
     CreateWidgetPopup,
+    vHeader,
   },
 
   data() {
