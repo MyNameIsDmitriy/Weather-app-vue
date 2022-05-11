@@ -13,6 +13,9 @@ const weatherImgObject = {
   Overcast: require("@/assets/svg/overcast.svg"),
   Cloudy: require("@/assets/svg/overcast.svg"),
   "Partly cloudy": require("@/assets/svg/partly-cloudy-day.svg"),
+  "Blowing snow": require("@/assets/svg/wind-snow.svg"),
+  "Light snow": require("@/assets/svg/snow.svg"),
+  "Heavy snow": require("@/assets/svg/extreme-snow.svg"),
 };
 
 export default {
