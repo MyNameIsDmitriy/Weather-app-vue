@@ -101,7 +101,7 @@ export default {
   }
 
   .city-input {
-    min-width: 800px;
+    width: 800px;
 
     background-color: rgb(19, 19, 20);
 
@@ -167,5 +167,17 @@ export default {
 
 .shownPopup {
   transform: scale(1);
+}
+
+@media (max-width: 1050px) {
+  .city-input {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 650px) {
+  .city-input {
+    max-width: 360px;
+  }
 }
 </style>
